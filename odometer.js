@@ -38,7 +38,7 @@ class Odometer {
 
 module.exports = { Odometer };
 
-const myOdo = new Odometer(16, 2);
+const myOdo = new Odometer(4, 6);
 
 const callBack = arr => {
   console.log(arr);
