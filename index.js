@@ -18,7 +18,7 @@ const { Odometer } = require("./odometer");
 
 // MAIN
 const findAllWords = arr => {
-  const result = new Set([]);
+  const result = [];
   const blockCount = input.length;
   const letterCount = input[0].length;
   const dict = dictFromInput(arr);
@@ -50,15 +50,16 @@ const findAllWords = arr => {
       // check if the string is in the dictionary
       // if so add to result
       if (dict[string] !== undefined) {
-        result.add(string);
+        result.push(string);
+        delete dict[string];
       }
 
       // increment odometer
       blockOdometer.increment();
     }
   }
-  console.log("RESULT LENGTH: ", result.size);
-  return [...result].sort();
+  console.log("RESULT LENGTH: ", result.length);
+  return result.sort();
 };
 
 console.log(findAllWords(input));
