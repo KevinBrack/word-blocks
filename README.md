@@ -1,5 +1,7 @@
 # Letter Blocks
 
+## Run and see results with `node index.js`
+
 Many household decorations have a series of wooden blocks with letters on each side. They can be arranged in many ways, to spell various words, representing various seasons or holidays. Typically, a set might have the letters to spell out a few words, such as Joy, Boo, Home, etc. with blank spaces being filled with pictures instead of letters. We want to know all possible unique single words that you can create by rearranging the blocks.
 Given a set of cubes with one letter on each side, using this wordlist (https://raw.githubusercontent.com/dolph/dictionary/master/enable1.txt), output all possible words that use all cubes, with the cubes arranged in any order. Your output should be in alphabetical order.
 Your algorithm should work regardless of the number of cubes or faces.
