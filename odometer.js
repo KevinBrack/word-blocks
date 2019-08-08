@@ -38,10 +38,10 @@ class Odometer {
 
 module.exports = { Odometer };
 
-const myOdo = new Odometer(4, 6);
+// const myOdo = new Odometer(4, 6);
 
-const callBack = arr => {
-  console.log(arr);
-};
+// const callBack = arr => {
+//   console.log(arr);
+// };
 
-myOdo.autoIncrementCb(callBack);
+// myOdo.autoIncrementCb(callBack);

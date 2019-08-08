@@ -14,21 +14,40 @@ const { dictFromInput } = require("./dictionary");
 // of a given array
 const { permutate } = require("./permutation");
 
+const { Odometer } = require("./odometer");
+
 // MAIN
 const findAllWords = arr => {
-  const blockNumber = input.length();
-  const letterLength = input[0].length;
+  const result = new Set([]);
+  const blockCount = input.length;
+  const letterCount = input[0].length;
   const dict = dictFromInput(arr);
+  const blockOdometer = new Odometer(blockCount, letterCount);
   const blockOrders = permutate(arr);
-  // console.log(blockOrders[23]);
-  console.log("FIRST CHAR", blockOrders[0][0][0]);
-  // Permutate character indexes
-  // for (let i = 0; i < blockOrders[0].length; i++) {
-  //   console.log(blockOrders[0][i]);
-  //   for (let j = 0; j < blockOrders[0][i].length; j++) {
-  //     console.log(blockOrders[0][i][j]);
-  //   }
-  // }
+
+  // Loop over each block combo eventually
+  for (let i = 0; i < 1; i++) {
+    const currentBlockOrder = blockOrders[i];
+    console.log("CURRENT BLOCK ORDER = ", currentBlockOrder);
+    // CURRENT BLOCK ORDER =  [
+    //   [ 'O', 'O', 'N', 'O', 'S', 'O' ],
+    //   [ 'E', 'E', 'W', '', '', '' ],
+    //   [ 'H', 'L', 'S', 'J', 'U', 'B' ],
+    //   [ 'M', 'V', 'O', 'Y', 'A', 'O' ]
+    // ]
+
+    // Reset blockOdometer
+    // While loop over block odometer which gives us
+    // an index set to test on the current block order
+    // read odometer
+    // set string to ""
+    // for loop over current block order appending string with
+    // matching item from the odometer index
+
+    // check if the string is in the dictionary
+    // if so add to result
+  }
+  return result;
 };
 
 findAllWords(input);
