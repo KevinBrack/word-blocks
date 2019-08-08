@@ -9,7 +9,7 @@ class Odometer {
 
   increment(position = this.odometer.length - 1) {
     if (position < 0) {
-      console.log("STOP HERE!!!");
+      // console.log("STOP HERE!!!");
       this.stopCondition = true;
       return;
     }
@@ -20,7 +20,7 @@ class Odometer {
     }
   }
 
-  resetOdometer() {
+  reset() {
     this.odometer = new Array(this.blockCount).fill(0);
     this.stopCondition = false;
   }
@@ -32,7 +32,7 @@ class Odometer {
       cb(this.odometer);
       this.increment();
     }
-    this.resetOdometer();
+    this.reset();
   }
 }
 

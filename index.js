@@ -26,28 +26,39 @@ const findAllWords = arr => {
   const blockOrders = permutate(arr);
 
   // Loop over each block combo eventually
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < blockOrders.length; i++) {
     const currentBlockOrder = blockOrders[i];
-    console.log("CURRENT BLOCK ORDER = ", currentBlockOrder);
-    // CURRENT BLOCK ORDER =  [
-    //   [ 'O', 'O', 'N', 'O', 'S', 'O' ],
-    //   [ 'E', 'E', 'W', '', '', '' ],
-    //   [ 'H', 'L', 'S', 'J', 'U', 'B' ],
-    //   [ 'M', 'V', 'O', 'Y', 'A', 'O' ]
-    // ]
 
     // Reset blockOdometer
+    blockOdometer.reset();
     // While loop over block odometer which gives us
     // an index set to test on the current block order
-    // read odometer
-    // set string to ""
-    // for loop over current block order appending string with
-    // matching item from the odometer index
+    while (!blockOdometer.stopCondition) {
+      // read odometer
+      const currentOrder = [...blockOdometer.odometer];
+      // set string to ""
+      let string = "";
+      // for loop over current block order appending string with
+      // matching item from the odometer index
+      for (let j = 0; j < currentOrder.length; j++) {
+        string += currentBlockOrder[j][currentOrder[j]];
+      }
+      // Dictionary is lowercase so matching string
+      string = string.toLowerCase();
 
-    // check if the string is in the dictionary
-    // if so add to result
+      // console.log("STRING: ", string);
+      // check if the string is in the dictionary
+      // if so add to result
+      if (dict[string] !== undefined) {
+        result.add(string);
+      }
+
+      // increment odometer
+      blockOdometer.increment();
+    }
   }
-  return result;
+  console.log("RESULT LENGTH: ", result.size);
+  return [...result].sort();
 };
 
-findAllWords(input);
+console.log(findAllWords(input));
