@@ -58,13 +58,13 @@ Was actually the result I was looking for to run agains my array of possible blo
 
 I was doing a little math to figure out the formula behind the 10 based odometer. Simple when you look at it
 
-| NUMBER     | 4755                                           |                                         |     |     |
-| ---------- | ---------------------------------------------- | --------------------------------------- | --- | --- |
-| ARRAY      | [4,7,5,5]                                      |                                         |     |     |
-| INDEX      | 0                                              | 1                                       | 2   | 3   |
-| value      | 4                                              | 7                                       | 5   | 5   |
-| represents | 4,000                                          | 700                                     | 50  | 5   |
-| formula    | 4755 / indexHeight\*\*array.length - 1 - index | Same with the remainder of position [0] | ... | ... |
+| NUMBER     | 4755                                             |                                         |     |     |
+| ---------- | ------------------------------------------------ | --------------------------------------- | --- | --- |
+| ARRAY      | [4,7,5,5]                                        |                                         |     |     |
+| INDEX      | 0                                                | 1                                       | 2   | 3   |
+| value      | 4                                                | 7                                       | 5   | 5   |
+| represents | 4,000                                            | 700                                     | 50  | 5   |
+| formula    | 4755 / indexHeight\*\*(array.length - 1 - index) | Same with the remainder of position [0] | ... | ... |
 
 I was getting ready to implement this and it fealt a little resource heavy for what I was trying to accomplish. Then it hit me, an odometer works incrementally and mechanically to do this efficently. I modeled the mechanical model with code and sure enough I had all possible combinations of indexes of characters for each block.
 
@@ -72,7 +72,7 @@ I was getting ready to implement this and it fealt a little resource heavy for w
 
 I was pretty sure I had all the pieces I needed to solve this puzzle at this point. It took about 1 more hour to put all the peices together.
 
-I started by pseudocoding my `main` function. Then I used the permutation to get all possible shuffles of the blocks. I looped over each of those combinations and ran the odometer to get each possible combination of characters for that order.
+I started by pseudocoding my `main` function. Then I used the permutation to get all possible shuffles of the blocks. I looped over each of those combinations and ran the odometer to get each possible combination of character indices for that order.
 
 I was a stuck for a moment checking my generated strings against the dictionary. Then I realized the blocks were upper case and the dictionary was lowercase. Everything else fell into place after that.
 
